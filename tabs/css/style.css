@@ -1,0 +1,64 @@
+/* @import "templates/green.css"; */
+/* @import "templates/blue.css"; */
+/* @import "templates/red.css"; */
+/* @import "templates/grey.css"; */
+/* @import "templates/yellow.css"; */
+
+* {
+    box-sizing: border-box;
+}
+
+@keyframes show {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.kalcifer_tabs{
+    position: relative; 
+    margin: 8px 0px;
+} 
+
+.kalcifer_tabs .kalcifer_titles {
+    /* outline: 1px solid red; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    width: 100%;
+    min-height: 20px;
+    /* padding-right: 40px; */
+}
+
+.kalcifer_tabs .kalcifer_titles > p{
+    cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-grow: 1;
+    margin: 0px;
+    border: 1px solid #bdbdbd;
+    border-radius: 0px;
+    background: #e6e6e6;
+    padding: 7px;
+    word-break: break-word;
+}
+
+.kalcifer_tabs .kalcifer_borderradius{
+    border-radius: 8px 8px 0px 0px!important;
+}
+
+.kalcifer_tabs .kalcifer_content {
+    display: none;
+    width: 100%;
+    min-height: 30px;
+    padding: 14px;
+    word-break: break-word;
+    border: 1px solid #bdbdbd;
+    border-radius: 0px 8px 8px 8px;
+    background: #ffffff;
+    color: #111111;
+}
+
+.kalcifer_tabs .content_active{
+    display: block;
+}
+
