@@ -4,7 +4,7 @@ const cList = {
     tabContent: 'kalcifer_content',
     activeTitle: 'title_active',
     activeContent: 'content_active',
-    borderRadius: 'border-top-right-radius'
+    borderRadiusTR: 'border-top-right-radius'
 }
 const tabs = document.getElementsByClassName(cList.tabWrap);
 const config = { tabTitileParams: `${(function() {
@@ -26,7 +26,7 @@ for (const tab of tabs){
     const contents = tab.getElementsByClassName(cList.tabContent);
     getTabPart(titles, cList.activeTitle);
     getTabPart(contents, cList.activeContent);
-    const contentBorderRadius = getParams(contents[0], cList.borderRadius);  
+    const contentBorderRadius = getParams(contents[0], cList.borderRadiusTR);  
 
     for (let i = 0; i < titles.length; i++) {    
         sumWidth += titles[i].clientWidth + getParams(titles[i], 'border-left') + getParams(titles[i], 'border-right');
