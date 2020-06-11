@@ -19,13 +19,11 @@
 } 
 
 .kalcifer_tabs .kalcifer_titles {
-    /* outline: 1px solid red; */
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
     width: 100%;
     min-height: 20px;
-    /* padding-right: 40px; */
 }
 
 .kalcifer_tabs .kalcifer_titles > p{
@@ -33,18 +31,35 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    flex-grow: 1;
     margin: 0px;
     border: 1px solid #bdbdbd;
     border-radius: 0px;
-    background: #e6e6e6;
+    background: #e1e1e1;
     padding: 7px;
     word-break: break-word;
 }
 
-.kalcifer_tabs .kalcifer_borderradius{
+.kalcifer_tabs .kalcifer_titles > p:hover{
+    background: #eaeaea;
+}
+
+.kalcifer_tabs .title_active{
+    background: #d2d2d2!important;
+    border-bottom-style: solid!important;
+    border-bottom-color: dimgrey!important;
+}
+
+.kalcifer_tabs .title_active:hover{
+    background: #d2d2d2!important;
+    border-bottom-style: solid!important;
+    border-bottom-color: dimgrey!important;
+}
+
+.kalcifer_tabs .borderradius{
     border-radius: 8px 8px 0px 0px!important;
 }
+
+
 
 .kalcifer_tabs .kalcifer_content {
     display: none;
@@ -53,7 +68,7 @@
     padding: 14px;
     word-break: break-word;
     border: 1px solid #bdbdbd;
-    border-radius: 0px 8px 8px 8px;
+    border-radius: 0px 18px 18px 18px;
     background: #ffffff;
     color: #111111;
 }
