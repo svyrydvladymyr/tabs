@@ -18,7 +18,7 @@
     margin: 8px 0px;
 } 
 
-.kalcifer_tabs .kalcifer_titles {
+.kalcifer_tabs > .titles {
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
@@ -26,7 +26,7 @@
     min-height: 20px;
 }
 
-.kalcifer_tabs .kalcifer_titles > p{
+.kalcifer_tabs > .titles > p{
     cursor: pointer;
     display: flex;
     flex-wrap: wrap;
@@ -39,29 +39,29 @@
     word-break: break-word;
 }
 
-.kalcifer_tabs .kalcifer_titles > p:hover{
+.kalcifer_tabs > .titles > p:hover{
     background: #eaeaea;
 }
 
-.kalcifer_tabs .title_active{
+.kalcifer_tabs > .titles > .active{
     background: #d2d2d2!important;
     border-bottom-style: solid!important;
     border-bottom-color: dimgrey!important;
 }
 
-.kalcifer_tabs .title_active:hover{
+.kalcifer_tabs > .titles > .active:hover{
     background: #d2d2d2!important;
     border-bottom-style: solid!important;
     border-bottom-color: dimgrey!important;
 }
 
-.kalcifer_tabs .borderradius{
+.kalcifer_tabs > .titles > .borderradius{
     border-radius: 8px 8px 0px 0px!important;
 }
 
 
 
-.kalcifer_tabs .kalcifer_content {
+.kalcifer_tabs > .content {
     display: none;
     width: 100%;
     min-height: 30px;
@@ -73,7 +73,7 @@
     color: #111111;
 }
 
-.kalcifer_tabs .content_active{
+.kalcifer_tabs > .content_active {
     display: block;
 }
 
