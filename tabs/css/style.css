@@ -29,7 +29,7 @@
 .kalcifer_tabs > .titles > p{
     cursor: pointer;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     margin: 0px;
     border: 1px solid #bdbdbd;
