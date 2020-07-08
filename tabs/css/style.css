@@ -18,7 +18,7 @@
     margin: 8px 0px;
 } 
 
-.kalcifer_tabs > .titles {
+.kalcifer_tabs > .kal_titles {
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
@@ -26,10 +26,10 @@
     min-height: 20px;
 }
 
-.kalcifer_tabs > .titles > p{
+.kalcifer_tabs > .kal_titles > .kal_titles_tab{
     cursor: pointer;
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-items: center;
     margin: 0px;
     border: 1px solid #bdbdbd;
@@ -39,27 +39,29 @@
     word-break: break-word;
 }
 
-.kalcifer_tabs > .titles > p:hover{
+.kalcifer_tabs > .kal_titles > .kal_titles_tab:hover{
     background: #eaeaea;
 }
 
-.kalcifer_tabs > .titles > .active{
+.kalcifer_tabs > .kal_titles > .kal_tab_active{
     background: #d2d2d2!important;
     border-bottom-style: solid!important;
     border-bottom-color: dimgrey!important;
 }
 
-.kalcifer_tabs > .titles > .active:hover{
+.kalcifer_tabs > .kal_titles > .kal_tab_active:hover{
     background: #d2d2d2!important;
     border-bottom-style: solid!important;
     border-bottom-color: dimgrey!important;
 }
 
-.kalcifer_tabs > .titles > .borderradius{
+.kalcifer_tabs > .kal_titles > .kal_borderradius{
     border-radius: 8px 8px 0px 0px!important;
 }
 
-.kalcifer_tabs > .content {
+
+
+.kalcifer_tabs > .kal_content {
     width: 100%;
     min-height: 0px;
     max-height: 100%;
@@ -76,7 +78,7 @@
     opacity: 0;
 }
 
-.kalcifer_tabs > .content_active {
+.kalcifer_tabs > .kal_content_active {
     min-height: 30px;
     height: 100%;
     padding: 14px;
