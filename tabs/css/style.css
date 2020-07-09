@@ -4,9 +4,7 @@
 /* @import "templates/grey.css"; */
 /* @import "templates/yellow.css"; */
 
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box }
 
 @keyframes show {
     0% { opacity: 0; }
@@ -21,9 +19,20 @@
 .kalcifer_tabs > .kal_titles {
     display: flex;
     flex-wrap: wrap;
-    justify-content: start;
     width: 100%;
     min-height: 20px;
+}
+
+.kalcifer_tabs > .kal_flex_left {
+    justify-content: flex-start;
+}
+
+.kalcifer_tabs > .kal_flex_right {
+    justify-content: flex-end;
+}
+
+.kalcifer_tabs > .kal_flex_center {
+    justify-content: center;
 }
 
 .kalcifer_tabs > .kal_titles > .kal_titles_tab{
@@ -71,7 +80,7 @@
     border-width: 0px;
     border-style: solid;
     border-color: #bdbdbd;
-    border-radius: 0px 18px 18px 18px;
+    border-radius: 18px 18px 18px 18px;
     background: #ffffff;
     color: #111111;
     overflow: hidden;
