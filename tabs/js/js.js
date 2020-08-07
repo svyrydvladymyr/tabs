@@ -117,12 +117,12 @@ for (const tab of tabs) {
         console.log("configTabsPosition", configTabsPosition);
 
 
-        if ((configTabsAlign === 'justify') && ((configTabsPosition === "top") || (configTabsPosition === "bottom"))) {
-            titles[i].style.cssText = `justify-content: center; text-align: center; width: ${100/titles.length}%`;
-        }
+        // if ((configTabsAlign === 'justify') && ((configTabsPosition === "top") || (configTabsPosition === "bottom"))) {
+        //     titles[i].style.cssText = `justify-content: center; text-align: center; width: ${100/titles.length}%`;
+        // }
 
-        // titles[i].style.cssText = ((configTabsAlign === 'justify') && ((configTabsPosition === "top") || (configTabsPosition === "bottom"))) 
-        //     ? `justify-content: center; text-align: center; width: ${100/titles.length}%` : null;
+        titles[i].style.cssText = ((configTabsAlign === 'justify') && ((configTabsPosition === "top") || (configTabsPosition === "bottom"))) 
+            ? `justify-content: center; text-align: center; width: ${100/titles.length}%` : null;
         
         titles[i].style.cssText = (((configTabsAlign === 'justify') || (configTabsAlign === 'center')) && ((configTabsPosition === "left") || (configTabsPosition === "right"))) 
             ? `width: 100%` : null;
