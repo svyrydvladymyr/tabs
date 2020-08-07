@@ -7,14 +7,35 @@
 * { box-sizing: border-box }
 
 .kalcifer_tabs{
+    display: flex;
     position: relative; 
     margin: 8px 0px;
+} 
+
+.kal_top{
+    flex-wrap: wrap;
+    flex-direction: column;
+} 
+
+.kal_bottom{
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+} 
+
+.kal_left{
+    flex-wrap: nowrap;
+    flex-direction: row;
+} 
+
+.kal_right{
+    flex-wrap: nowrap;
+    flex-direction: row-reverse;
 } 
 
 .kalcifer_tabs > .kal_tabs {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
+    /* max-width: 200px; */
     min-height: 20px;
 }
 
@@ -71,7 +92,8 @@
 
 
 .kalcifer_tabs > .kal_contents {
-    width: 100%;
+    flex-grow: 1;
+    /* width: 100%; */
 }
 
 .kalcifer_tabs > .kal_contents > .kal_content {

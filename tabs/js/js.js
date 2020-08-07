@@ -11,10 +11,10 @@ const cList = {
     borderRadiusBL: 'border-bottom-left-radius',
     borderLeft: 'border-left',
     borderRight: 'border-right'
-};
-const tabs = document.getElementsByClassName(cList.tabWrap);
-const getParams = (el) => el.clientWidth + parseInt(getComputedStyle(el).getPropertyValue(cList.borderLeft)) + parseInt(getComputedStyle(el).getPropertyValue(cList.borderRight));
-const getTabPart = (tabPart, classPart, i = 0) => {
+},
+tabs = document.getElementsByClassName(cList.tabWrap),
+getParams = (el) => el.clientWidth + parseInt(getComputedStyle(el).getPropertyValue(cList.borderLeft)) + parseInt(getComputedStyle(el).getPropertyValue(cList.borderRight)),
+getTabPart = (tabPart, classPart, i = 0) => {
     for (const part of tabPart) {part.classList.remove(classPart)};
     tabPart[i].classList.add(classPart); 
 };
@@ -32,26 +32,62 @@ for (const tab of tabs) {
           setArrSide = ['TL', 'TR', 'BL ', 'BR', 'TL', 'BL', 'TR', 'BR'], 
           setArrOtherSide = ['TR', 'TL', 'BR ', 'BL', 'BL', 'TL', 'BR', 'TR'],
           configTabsFlex = (alignTabs === "start" || alignTabs === "end") ? 0 : 1, 
-          configTabsAlign = (alignTabs === "start" || alignTabs === "end") ? alignTabs : "start",
+          configTabsAlign = (alignTabs === "start" || alignTabs === "end" || alignTabs === "justify" || alignTabs === "center") ? alignTabs : "start",
           configTabsPosition = (positionTabs === "top" || positionTabs === "bottom" || positionTabs === "left" || positionTabs === "right") ? positionTabs : 'top'; 
 
+    console.log("tab", tab);
     // console.log("alignTabs", alignTabs);
     // console.log("configTabsAlign", configTabsAlign);
     // console.log("configTabsPosition", positionTabs);
     // console.log("configTabsPosition", configTabsPosition);
 
-    for (let i = 0; i < positionArr.length; i++) { borderRadiusSide = ((configTabsPosition === positionArr[i]) && (configTabsAlign === sideArr[i])) ? cList[`borderRadius${setArrSide[i]}`] : null };
-    for (let i = 0; i < positionArr.length; i++) { borderRadiusOtherSide = ((configTabsPosition === positionArr[i]) && (configTabsAlign === sideArr[i])) ? cList[`borderRadius${setArrOtherSide[i]}`] : null };
+    for (let i = 0; i < positionArr.length; i++) { 
+        if ((configTabsPosition === positionArr[i]) && (configTabsAlign === sideArr[i])) { 
+            borderRadiusSide = cList[`borderRadius${setArrSide[i]}`] 
+        }
+    };
+    for (let i = 0; i < positionArr.length; i++) { 
+        if ((configTabsPosition === positionArr[i]) && (configTabsAlign === sideArr[i])) { 
+            borderRadiusOtherSide = cList[`borderRadius${setArrOtherSide[i]}`] 
+        };
+    };
+
+    if (alignTabs === "justify" || alignTabs === "center") {
+        if (configTabsPosition === 'top') {
+            borderRadiusSide = 'border-top-right-radius';
+            borderRadiusOtherSide = 'border-top-left-radius';
+        } else if (configTabsPosition === 'bottom') {
+            borderRadiusSide = 'border-bottom-right-radius';
+            borderRadiusOtherSide = 'border-bottom-left-radius';
+        };
+    };
     
+    if ((configTabsPosition === "top") || (configTabsPosition === "bottom") || (configTabsPosition === "left") || (configTabsPosition === "right")){
+        tab.classList.add(`kal_${configTabsPosition}`);
+    };
+
+
     for(const part of tab.children){    
         if (part.classList.contains(cList.tabTitle)) { 
-            for(const child of part.children) { titles.push(child) }
-            part.classList.add(`kal_flex_${alignTabs}`);
+            for(const child of part.children) { titles.push(child) };
+            part.classList.add(`kal_flex_${configTabsAlign}`);
+            if (configTabsPosition === "left" || configTabsPosition === "right") {
+                const maxSideSize = tab.getAttribute('max_side_size'),
+                      maxSideSizeConfig = ((Number.isInteger(+maxSideSize)) && (+maxSideSize < getParams(tab)) && (+maxSideSize > 0)) ? maxSideSize : 200;
+                part.style.maxWidth = `${maxSideSizeConfig}px`;                
+                part.style.flexWrap = `wrap`;    
+                
+                // for(const child of part.children) { child.style.width = '100%' };
+                // console.log("getParams(contentActive)", getParams(tab));
+                // console.log("maxSideSize", maxSideSize);
+                // console.log("maxSideSizeConfig", maxSideSizeConfig);
+            }
+
         };     
         if (part.classList.contains(cList.tabContent)) { 
             // console.log("contents", part.children);
             for(const child of part.children) { contents.push(child) }
-        };     
+        };      
     }
 
     // console.log("titles", titles);
@@ -66,6 +102,9 @@ for (const tab of tabs) {
     getTabPart(titles, cList.activeTitle, activeTab);
     getTabPart(contents, cList.activeContent, activeTab);
 
+    // console.log("borderRadiusSide", borderRadiusSide);
+    // console.log("borderRadiusOtherSide", borderRadiusOtherSide);
+
     const contentBorderRadius = parseInt(getComputedStyle(contents[activeTab]).getPropertyValue(borderRadiusSide)); 
 
     console.log("contentBorderRadius", contentBorderRadius);
@@ -74,8 +113,18 @@ for (const tab of tabs) {
         titles[i].classList.add('kal_tab');
         contents[i].classList.add('kal_content');
 
+        console.log("configTabsAlign", configTabsAlign);
+        console.log("configTabsPosition", configTabsPosition);
 
-        titles[i].style.cssText = (alignTabs === 'justify') ? `justify-content: center; text-align: center; width: ${100/titles.length}%` : null;
+        if ((configTabsAlign === 'justify') && ((configTabsPosition === "top") || (configTabsPosition === "bottom"))) {
+            titles[i].style.cssText = `justify-content: center; text-align: center; width: ${100/titles.length}%`;
+        }
+
+        // titles[i].style.cssText = ((configTabsAlign === 'justify') && ((configTabsPosition === "top") || (configTabsPosition === "bottom"))) 
+        //     ? `justify-content: center; text-align: center; width: ${100/titles.length}%` : null;
+        
+        titles[i].style.cssText = (((configTabsAlign === 'justify') || (configTabsAlign === 'center')) && ((configTabsPosition === "left") || (configTabsPosition === "right"))) 
+            ? `width: 100%` : null;
 
         const sum = getParams(titles[i]);
         sumWidth += sum;
