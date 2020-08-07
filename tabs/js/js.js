@@ -116,6 +116,7 @@ for (const tab of tabs) {
         console.log("configTabsAlign", configTabsAlign);
         console.log("configTabsPosition", configTabsPosition);
 
+
         if ((configTabsAlign === 'justify') && ((configTabsPosition === "top") || (configTabsPosition === "bottom"))) {
             titles[i].style.cssText = `justify-content: center; text-align: center; width: ${100/titles.length}%`;
         }
